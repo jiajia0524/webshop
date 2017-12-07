@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>果然新鲜</title>
+    <link href="${ctx }/static/css/orange.css"rel="stylesheet">
     <link href="${ctx }/static/css/index.css"rel="stylesheet">
     <link href="${ctx }/static/css/share.css"rel="stylesheet">
     <script src="${ctx }/static/js/jquery-1.12.3.js"></script>
@@ -19,24 +20,23 @@
         <img src="${ctx }/static/images/logo.jpg" style="margin-top: 7px;float: left;position: absolute">
         <div class="headr-nav">
             <ul>
-                <li><a href="index.html"style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
-                <li><a href="hot.html">蔬果热卖</a> </li>
-                <li><a href="produ.html">全部产品</a> </li>
-                <li><a href="consult.html">最新资讯</a></li>
-                <li><a href="touch.html">联系我们</a> </li>
+                <li><a href="${ctx }/front/index.jsp"style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
+                <li><a href="${ctx }/fruits/fruits_list1">蔬果热卖</a> </li>
+                <li><a href="${ctx }/fruits/fruits_list2">全部产品</a> </li>
+                <li><a href="${ctx }/front/consult.jsp">最新资讯</a></li>
+                <li><a href="${ctx }/front/touch.jsp">联系我们</a> </li>
+                      
             </ul>
+            
             <div class="sptopfoot">
                 <div class="spbottom"  >
                 </div>
             </div>
         </div>
         <div class="headr-right">
+            
             <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i>
             我的购物车 ∨
-            <div class="hr-car">
-                <i class="iconfont"style="font-size: 40px;margin-right: 10px">&#xe633;</i>
-                您的购物车内暂时没有任何产品。
-            </div>
         </div>
     </div>
 </div>
@@ -87,7 +87,7 @@
                                 <span class="second_Marketprice">￥0.00</span>
                             </div>
                         <div class="buy">
-                            <a class="second_mallBuy" href="orange.html">
+                            <a class="second_mallBuy" href="fruitsDetail.jsp">
                                 <span style="color: white;">购买</span>
                             </a>
                         </div>
@@ -331,14 +331,7 @@
             <div class="txtMarquee-top">
                 <div class="bd">
                     <ul class="infoList">
-                        <c:forEach items="${list }" var="fruits">
-                            <li><p>${fruits.fruits_name}</p>
-                                <p>${fruits.fruits_producingplace }</p>
-                                <p>${fruits.fruits_presentprice }/${fruits.fruits_count }</p>
-                            </li>
-                        </c:forEach>
-
-                     <!--    <li><p>苹果</p><p>河南省济源市</p><p >5.5/kg</p>04-09</li>
+                     <li><p>苹果</p><p>河南省济源市</p><p >5.5/kg</p>04-09</li>
                         <li><p>西瓜</p><p>	内蒙古鄂尔多斯</p><p >10/kg</p>04-09</li>
                         <li><p>葡萄</p><p>新疆乌鲁木齐</p><p >19/kg</p>04-09</li>
                         <li><p>车厘子</p><p>河南省郑州市</p><p>	58.5/kg</p> 04-09</li>
@@ -348,7 +341,7 @@
                         <li><p>西瓜	</p><p>内蒙古鄂尔多斯</p><p>10/kg</p>	04-09</li>
                         <li><p>葡萄	</p><p>新疆乌鲁木齐	</p><p>19/kg</p>	04-09</li>
                         <li><p>菜心	</p><p>河南省新乡市</p><p>	5.5/kg	</p>04-09</li>
-                        <li><p>西兰花</p><p>	河南省信阳市</p><p>	3.5/kg	</p>04-09</li> -->
+                        <li><p>西兰花</p><p>	河南省信阳市</p><p>	3.5/kg	</p>04-09</li> 
                     </ul>
                 </div>
             </div>
@@ -377,6 +370,99 @@
     <!--蔬果资讯结束-->
 </div>
 <!--主页内容结束-->
+<!--弹框-->
+<div class="popup">
+    <div class="login">
+        <div class="del">×</div>
+        <div class="lg-cont">
+            <div class="lhd">
+                <ul>
+                    <li class="active">登录</li>
+                    <li>注册</li>
+                </ul>
+                <div class="lhdfoot">
+                    <div class="lhdbottom"  >
+                    </div>
+                </div>
+
+            </div>
+            <div class="lbd">
+                <div class="lbd1"style="display: block">
+                    <div id="memberLoginAcct" class="J_memberLoginItem memberLoginDialogItem">
+                        <input id="memberAcct" class="generateInput memberAcctInput" type="text" value="" placeholder="账号">
+                    </div>
+                    <div id="memberLoginPwd" class="J_memberLoginItem memberLoginDialogItem itemSpace">
+                        <input id="memberPwd" class="generateInput memberPwdInput" type="password" placeholder="密码"}>
+                    </div>
+                    <div class="loginButton loginButton">
+                        <div class="middle">登录</div>
+                    </div>
+                    <div class="bott"></div>
+                </div>
+                <div class="lbd1">
+                    <div class="msv">
+                        <div class="memberSignupItem">
+                            <div class="itemMiddle">
+                                <input type="text" placeholder="账号" >
+                            </div>
+                            <div class="itemRight">*</div>
+                        </div>
+                        <div class="memberSignupItem ">
+                            <div class="itemMiddle">
+                                <input type="password" id="memberSignupPwd" placeholder="密码" maxlength="50">
+                            </div>
+                            <div class="itemRight">*</div>
+                        </div>
+                        <div class="memberSignupItem">
+                            <div class="itemMiddle">
+                                <input type="password" id="memberSignupRepwd" placeholder="确认密码" maxlength="50">
+                            </div>
+                            <div class="itemRight">*</div>
+                        </div>
+                        <div class="memberSignupItem">
+                            <div class="itemMiddle">
+                                <input id="name" name="姓名" placeholder="姓名" class="userAddItem isCheckUAI" type="text" maxlength="50">
+                            </div>
+                            <div class="itemRight">*</div>
+                        </div>
+                        <div class="memberSignupItem">
+                            <div class="itemMiddle">
+                                <input id="email" name="邮箱" placeholder="邮箱" class="userAddItem" type="text" maxlength="50">
+                            </div>
+                            <div class="itemRight"></div>
+                        </div>
+                        <div class="memberSignupItem">
+                            <div class="itemMiddle">
+                                <input id="phone" name="电话" placeholder="电话" class="userAddItem" type="text" maxlength="50">
+                            </div>
+                            <div class="itemRight"></div>
+                        </div>
+                        <div class="memberSignupItem_remark">
+                            <div class="itemMiddle">
+                                <textarea id="memberSignupRemark" placeholder="留言" maxlength="200"></textarea>
+                            </div>
+                            <div class="itemRight"></div>
+                        </div>
+                        <div class="memberSignupItem_captcha">
+                            <div class="itemMiddle" style="float:left;width: 150px;">
+                                <input id="memberSignupCaptcha" type="text" maxlength="4" placeholder="验证码">
+                            </div>
+                            <div class="itemRightp">
+                                <img alt="" id="memberSignupCaptchaImg" class="memberSignupCaptchaImg" onclick="Site.changeCaptchaImg(this)" title="看不清，换一张" src="images/validateCode.jpg">
+                            </div>
+                        </div>
+                   </div>
+                    <div class="loginButton loginButton">
+                        <div class="middle">注册</div>
+                    </div>
+                    <div class="bott"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--弹框结束-->
 <!--底部-->
 <div class="footer">
     <div class="ft-con">
@@ -429,4 +515,5 @@
 
 </body>
 <script src="${ctx }/static/js/index.js"></script>
+<script src="${ctx }/static/js/orange.js"></script>
 </html>

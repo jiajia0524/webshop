@@ -5,13 +5,12 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.blue.fruits.entity.Fruits;
 import com.blue.fruits.fruits.dao.FruitsDaoImpl;
 
 @Service
-@Transactional(readOnly=true)
 public class FruitsServiceImpl {
 	
 	@Resource
@@ -19,6 +18,29 @@ public class FruitsServiceImpl {
 	
 	public List<Fruits> listAll(){
 		return this.fruitsDaoImpl.findAll();
+	}
+	
+	public Boolean addFruits(Fruits fruits) {
+		Boolean f = fruitsDaoImpl.addFruits(fruits);
+		return f;
+	}
+	
+	public Fruits selectById(int id) {
+		Fruits fruits = fruitsDaoImpl.selectById(id);
+		return fruits;
+	}
+	
+	public int updateFruits(Fruits fruits) {
+		int i = fruitsDaoImpl.updateFruits(fruits);
+		return i;
+	}
+	
+	public void deleteFruits(int id) {
+		fruitsDaoImpl.deleteFruits(id);
+	}
+	
+	public void fruitsImg(String realPath,MultipartFile file, int id) {
+		fruitsDaoImpl.fruitsImg(realPath, file, id);
 	}
 
 }

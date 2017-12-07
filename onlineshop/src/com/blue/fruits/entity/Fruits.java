@@ -1,36 +1,38 @@
 package com.blue.fruits.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 
 
 @Entity
 @Table(name="fruits")
 public class Fruits {
-	
-	private int fruits_id;
+	private Integer fruits_id;
 	private String fruits_name;
 	private String fruits_count;
 	private String fruits_describe;
 	private double fruits_presentprice;
 	private double fruits_originalprice;
+	private Integer type_id;
 	private Fruitstype fruitstype_id;
 	private String fruits_producingplace;
 	private String fruits_image;
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getFruits_id() {
-		return fruits_id;
-	}
-	public void setFruits_id(int fruits_id) {
-		this.fruits_id = fruits_id;
-	}
 	public String getFruits_name() {
 		return fruits_name;
 	}
@@ -81,6 +83,17 @@ public class Fruits {
 	public void setFruits_producingplace(String fruits_producingplace) {
 		this.fruits_producingplace = fruits_producingplace;
 	}
-	
+	public Integer getFruits_id() {
+		return fruits_id;
+	}
+	public void setFruits_id(Integer fruits_id) {
+		this.fruits_id = fruits_id;
+	}
+	public Integer getType_id() {
+		return type_id;
+	}
+	public void setType_id(Integer type_id) {
+		this.type_id = type_id;
+	}
 
 }

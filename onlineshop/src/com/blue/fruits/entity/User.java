@@ -10,29 +10,44 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User {
 	
-	private Integer user_id;
-	private String user_name;
-	private String user_password;
-	
-	public Integer getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
-	}
+	private Integer userId;
+	private String userName;
+	private String userPassword;
+	private String userImage;
+	private String userEmail;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public String getUser_name() {
-		return user_name;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
-	public String getUser_password() {
-		return user_password;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUser_password(String user_password) {
-		this.user_password = user_password;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-
+	public String getUserPassword() {
+		return userPassword;
+	}
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+	public String getUserImage() {
+		return userImage;
+	}
+	public void setUserImage(String userImage) {
+		this.userImage = userImage;
+	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+	
+	
+	
 }

@@ -19,19 +19,41 @@ import com.blue.fruits.user.service.UserServiceImpl;
 public class UserController {
 	
 	@Resource
-	private UserServiceImpl UserServiceImpl;
+	private UserServiceImpl userServiceImpl;
 
 	@RequestMapping("/login")
 	public String login(@RequestParam("user_name") String name,
 			@RequestParam("user_password") String pwd,
 			HttpSession session,Model model){
-		User lu=this.UserServiceImpl.login(name, pwd);
+		User lu=this.userServiceImpl.login(name, pwd);
 		if(lu!=null){
 			session.setAttribute("lu", lu);
 			return "front/index";
 		}else{
 			model.addAttribute("erroinfo", "用户名或密码错误");
 			return "error";
+		}
+	}
+	
+	@RequestMapping("/username")
+	public void selectAllName( Model model) {
+		List<String> list = userServiceImpl.selectAllName();
+		model.addAttribute("username", list);
+	}
+	
+	@RequestMapping("/register")
+	public String Register(Model model,User user) {
+		selectAllName(model);
+		Boolean b = false;
+		if(user != null && user.getUserName() != null && user.getUserPassword() != null
+				&& !user.equals("") && !user.getUserName().equals("") && !user.getUserPassword().equals("")) {
+			b = userServiceImpl.add(user);
+		}
+		if(b != false) {
+			return "front/login";
+		}else {
+			model.addAttribute("registerError", "注册失败");
+			return "front/register";
 		}
 	}
 }
