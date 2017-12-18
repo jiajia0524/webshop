@@ -1,26 +1,23 @@
 package com.blue.fruits.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
-@Entity
-@Table(name="user")
+//@Entity
+//@Table(name="user")
 public class User {
 	
-	private Integer userId;
+	private int userId;
 	private String userName;
 	private String userPassword;
 	private String userImage;
 	private String userEmail;
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Integer getUserId() {
+	private Set<Address> addressSet = new HashSet<Address>();
+	private Set<Cart> cartSet = new HashSet<Cart>();
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(Integer userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
@@ -47,7 +44,28 @@ public class User {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
+	public Set<Address> getAddressSet() {
+		return addressSet;
+	}
+	public void setAddressSet(Set<Address> addressSet) {
+		this.addressSet = addressSet;
+	}
+	public Set<Cart> getCartSet() {
+		return cartSet;
+	}
+	public void setCartSet(Set<Cart> cartSet) {
+		this.cartSet = cartSet;
+	}
+	public Set<Orders> getOrdersSet() {
+		return ordersSet;
+	}
+	public void setOrdersSet(Set<Orders> ordersSet) {
+		this.ordersSet = ordersSet;
+	}
+	private Set<Orders> ordersSet = new HashSet<Orders>();
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	
 	
 }

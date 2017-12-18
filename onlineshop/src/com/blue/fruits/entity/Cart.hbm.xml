@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blue.fruits.entity">
+  <class name="Cart" table="CART">
+    <id name="cartId" type="int">
+      <column name="CARTID" />
+      <generator class="increment"></generator>
+    </id>
+    <property name="count" />
+    
+    <!-- 购物车对图书的多对多关联映射，Cart,Fruits -->
+    <!-- 
+    <set name="fruitsSet" table="CARTFRUITS" inverse="false">
+      <key column="CARTID" />
+      <many-to-many class="Book" column="FRUITS" />
+    </set>
+     -->
+     
+    <many-to-one name="fruits" column="FRUITSID" class="Fruits"/> 
+    <many-to-one name="user" column="USERID" class="User" lazy="false"/> 
+    
+  </class>
+</hibernate-mapping>

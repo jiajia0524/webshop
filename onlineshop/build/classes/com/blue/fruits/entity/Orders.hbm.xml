@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blue.fruits.entity">
+  <class name="Orders" table="ORDERS">
+    <id name="orderId" type="int">
+      <column name="ORDERID" />
+      <generator class="increment"></generator>
+    </id>
+    <property name="userId"/>
+    <property name="price" />
+    <property name="count"/>
+    <property name="time" />
+    <property name="orderState" />
+    
+    <!-- 订单对于地址的双向一对多 ，one方：Address；many方：Orders -->
+    <many-to-one name="address" column="ADDRESSID" class="Address" />
+    
+    <!-- 订单对蔬果的多对多关联映射，Orders,Fruits -->
+    <set name="fruitsSet" table="ORDERSDETAIL" inverse="false">
+      <key column="ORDERSID" />
+      <many-to-many class="Fruits" column="FRUITS_ID" />
+    </set>
+    
+  </class>
+</hibernate-mapping>

@@ -35,12 +35,19 @@ public class FruitsServiceImpl {
 		return i;
 	}
 	
-	public void deleteFruits(int id) {
-		fruitsDaoImpl.deleteFruits(id);
+	public void deleteFruits(int fruits_id) {
+		fruitsDaoImpl.deleteFruits(fruits_id);
 	}
 	
 	public void fruitsImg(String realPath,MultipartFile file, int id) {
 		fruitsDaoImpl.fruitsImg(realPath, file, id);
+	}
+	
+	public Integer selectTotalpages() {
+		return this.fruitsDaoImpl.selectTotalpages();
+	}
+	public List<Fruits> select(Integer pages){
+		return this.fruitsDaoImpl.select(pages);
 	}
 
 }

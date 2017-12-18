@@ -15,9 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.blue.fruits.entity.Fruitstype;
-
-
+import com.blue.fruits.entity.FruitsType;
 
 
 @Repository
@@ -26,26 +24,26 @@ public class FruitsTypeDaoImpl {
 	@Resource
 	private SessionFactory sessionFactory;
 	
-	public List<Fruitstype> selectAll() {
+	public List<FruitsType> selectAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from Fruitstype");
-		List<Fruitstype> list = query.list();
+		Query query = session.createQuery("from FruitsType");
+		List<FruitsType> list = query.list();
 		return list;
 	}
 	
-	public Boolean addType(Fruitstype ftype) {
+	public Boolean addType(FruitsType ftype) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		session.save(ftype);
 		return true;
 	}
 	
-	public int updateType(Fruitstype ftype) {
+	public int updateType(FruitsType ftype) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		Query query = session.createQuery("update Type set name=? where id=?");
+		Query query = session.createQuery("update FruitsType set fruitstype_name=? where fruitstype_id=?");
 		query.setParameter(0, ftype.getFruitstype_name());;
 		query.setParameter(1, ftype.getFruitstype_id());
 		int i = query.executeUpdate();
@@ -56,16 +54,16 @@ public class FruitsTypeDaoImpl {
 	public void deleteType(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		Fruitstype ftype = session.get(Fruitstype.class, new Integer(id));
+		FruitsType ftype = session.get(FruitsType.class, new Integer(id));
 		session.delete(ftype);
 	}
 
-	public Fruitstype selectById(int id) {
+	public FruitsType selectById(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from Type where id = ?");
+		Query query = session.createQuery("from FruitsType where fruitstype_name = ?");
 		query.setParameter(0, id);
-		Fruitstype type = (Fruitstype)query.uniqueResult();
+		FruitsType type = (FruitsType)query.uniqueResult();
 		return type;
 	}
 

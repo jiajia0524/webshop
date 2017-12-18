@@ -15,10 +15,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.blue.fruits.entity.Fruits;
-import com.blue.fruits.entity.Fruitstype;
-
-
-
+import com.blue.fruits.entity.FruitsType;
 
 @Repository
 public class FruitsDaoImpl {
@@ -38,7 +35,7 @@ public class FruitsDaoImpl {
 	}
 	//通过ID查询蔬果
 	public Fruits selectById(int id) {
-		// TODO Auto-generated method stub
+
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from Fruits where fruits_id = ?");
 		query.setParameter(0, id);
@@ -47,14 +44,14 @@ public class FruitsDaoImpl {
 	}
 	//更新蔬果
 	public int updateFruits(Fruits fruits) {
-		// TODO Auto-generated method stub
+		
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		
 		int id = fruits.getType_id();
 		Query typeQuery = session.createQuery("from Fruitstype where type_id=?");
 		typeQuery.setParameter(0, id);
-		Fruitstype t = (Fruitstype)typeQuery.uniqueResult();
+		FruitsType t = (FruitsType)typeQuery.uniqueResult();
 		String typename = t.getFruitstype_name();
 		
 		Query query = session.createQuery("update Fruits set fruits_name=?,fruits_count=?,fruits_describe=?,fruits_presentprice=?,fruits_originalprice=?,type_id=?,typename=?,fruits_producingplace=?,fruits_image=? where fruits_id=?");
@@ -74,7 +71,6 @@ public class FruitsDaoImpl {
 	}
 	//删除蔬果
 	public void deleteFruits(int id) {
-		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		Fruits f = session.get(Fruits.class, new Integer(id));
 		session.delete(f);
@@ -96,7 +92,6 @@ public class FruitsDaoImpl {
 					fos.flush();
 					fos.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				Fruits f = selectById(id);
@@ -105,6 +100,35 @@ public class FruitsDaoImpl {
 			}
 		}
 	}
+	//分页	
+	Integer limit = 8;
+	public Integer selectTotalpages() {
+		Session session = sessionFactory.openSession();
+		Query querycount = session.createQuery("select count(*) from Fruits");
+		
+		Long count = (Long) querycount.uniqueResult();
+		Integer totalpages;
+		if(count==0) {
+			totalpages = 0;
+		}else {
+			if(count%limit == 0) {
+				totalpages = (int)(count/limit);
+			}else {
+				totalpages = (int)(count/limit)+1;
+			}
+		}
+		return totalpages;
+	}
+	public List<Fruits> select(Integer pages){
+		Session session = sessionFactory.openSession();
+		
+		Query queryFruits = session.createQuery("from Fruits order by fruits_id asc");
+		//queryFruits.setFirstResult((pages - 1)*limit);
+		//queryFruits.setMaxResults(limit);
+		List<Fruits> list = queryFruits.list();
+		return list;
+	}
+	
 	
 
 }

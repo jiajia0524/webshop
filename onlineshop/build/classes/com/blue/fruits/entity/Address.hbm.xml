@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blue.fruits.entity">
+  <class name="Address" table="ADDRESS">
+    <id name="addressId" type="int">
+      <column name="ADDRESSID" />
+      <generator class="increment"></generator>
+    </id>
+    <property name="userId" >
+      <column name="USERID" />
+    </property>
+    <property name="addressName" />
+    <property name="addressTel" />
+    <property name="addressProvince" />
+    <property name="addressCity" />
+    <property name="addressDistrict" />
+    <property name="addressDetail" />
+    
+    <!-- 订单对于地址的双向一对多 ，one方：Address；many方：Orders -->
+    <set name="ordersSet" cascade="delete">
+      <key column="ADDRESSID" />
+      <one-to-many class="Orders" />
+    </set>
+    
+  </class>
+</hibernate-mapping>

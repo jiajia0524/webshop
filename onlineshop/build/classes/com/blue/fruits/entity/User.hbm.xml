@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blue.fruits.entity">
+  <class name="User" table="USER">
+    <id name="userId" type="int">
+      <column name="USERID" />
+      <generator class="increment"></generator>
+    </id>
+    <property name="userName" />
+    <property name="userPassword" />
+    <property name="userImage" />
+    <property name="userEmail" />
+    <!-- 用户对于地址的单向一对多，one方：User；many方：Address-->
+    <set name="addressSet" cascade="delete">
+      <key column="USERID" />
+      <one-to-many class="Address" />
+    </set>
+    
+    <!-- 用户对于购物车的双向一对多，one方：User；many方：Cart-->
+    <set name="cartSet" cascade="all" >
+      <key column="USERID" />
+      <one-to-many class="Cart" />
+    </set>
+    
+    <!-- 用户对于订单的单向一对多，one方：User；many方：Orders-->
+    <set name="ordersSet" cascade="delete" >
+      <key column="USERID" />
+      <one-to-many class="Orders" />
+    </set>
+  </class>
+</hibernate-mapping>

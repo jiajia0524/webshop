@@ -11,7 +11,7 @@
     <link href="${ctx }/static/css/index.css"rel="stylesheet">
     <link href="${ctx }/static/css/share.css"rel="stylesheet">
     <script src="${ctx }/static/js/jquery-1.12.3.js"></script>
-    </script><script type="text/javascript" src="${ctx }/static/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="${ctx }/static/js/jquery.SuperSlide.2.1.1.js"></script>
 </head>
 <body>
 <!--顶部导航-->
@@ -20,11 +20,11 @@
         <img src="${ctx }/static/images/logo.jpg" style="margin-top: 7px;float: left;position: absolute">
         <div class="headr-nav">
             <ul>
-                <li><a href="${ctx }/front/index.jsp"style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
+                <li><a href="${ctx }/fruits/fruits_list3"style="color: #4AB344"><span style="color: #4AB344">首页</span></a> </li>
                 <li><a href="${ctx }/fruits/fruits_list1">蔬果热卖</a> </li>
                 <li><a href="${ctx }/fruits/fruits_list2">全部产品</a> </li>
-                <li><a href="${ctx }/front/consult.jsp">最新资讯</a></li>
-                <li><a href="${ctx }/front/touch.jsp">联系我们</a> </li>
+                <li><a href="${ctx }/front/consult.jsp">${lu.userName }</a></li>
+                <li><a href="${ctx }/front/login.jsp">退出登录</a> </li>
                       
             </ul>
             
@@ -35,8 +35,8 @@
         </div>
         <div class="headr-right">
             
-            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i>
-            我的购物车 ∨
+            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i><a href="${ctx }/cart/cartlist">
+            我的购物车 ∨</a>
         </div>
     </div>
 </div>
@@ -70,142 +70,31 @@
             </div>
 
             <div class="rec-right">
-
+            <c:forEach items="${list }" var="f" begin="17" end="22">
                 <div class="rcr">
                     <div class="rcr-top">
-                        <img src="${ctx }/static/images/rc-2.jpg" width="100%">
+                        <img src="${ctx }/static/images/${f.fruits_image}" width="100%">
                     </div>
                     <div class="rcr-bot">
                         <div class="rb-top">
-                            南非进口黄柠檬 6个装
+                            ${f.fruits_name } ${f.fruits_count }
                         </div>
                             <div class="second_P">
                                 <span class="fk-prop">￥</span>
-                                <span class="fk-prop-price">29
-                                    <span class="fk-prop-p">.00</span>
+                                <span class="fk-prop-price">${f.fruits_presentprice }0
+                                    <span class="fk-prop-p"></span>
                                 </span>
-                                <span class="second_Marketprice">￥0.00</span>
+                                <span class="second_Marketprice">￥${f.fruits_originalprice }0</span>
                             </div>
                         <div class="buy">
-                            <a class="second_mallBuy" href="fruitsDetail.jsp">
+                            <a class="second_mallBuy" href="fruitsDetail1.do?id=${f.fruits_id}">
                                 <span style="color: white;">购买</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="rcr">
-                    <div class="rcr-top">
-                        <img src="${ctx }/static/images/rc-3.jpg" width="100%">
-                    </div>
-                    <div class="rcr-bot">
-                        <div class="rb-top">
-                            智利进口新鲜蓝莓 4盒
-                        </div>
-                        <div class="second_P">
-                            <span class="fk-prop">￥</span>
-                                <span class="fk-prop-price">99
-                                    <span class="fk-prop-p">.00</span>
-                                </span>
-                            <span class="second_Marketprice">￥0.00</span>
-                        </div>
-                        <div class="buy">
-                            <a class="second_mallBuy">
-                                <span style="color: white;">购买</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="rcr">
-                    <div class="rcr-top">
-                        <img src="${ctx }/static/images/rc-4.jpg" width="100%">
-                    </div>
-                    <div class="rcr-bot">
-                        <div class="rb-top">
-                            美国进口红啤梨 6个
-                        </div>
-                        <div class="second_P">
-                            <span class="fk-prop">￥</span>
-                                <span class="fk-prop-price">48
-                                    <span class="fk-prop-p">.00</span>
-                                </span>
-                            <span class="second_Marketprice">￥0.00</span>
-                        </div>
-                        <div class="buy">
-                            <a class="second_mallBuy">
-                                <span style="color: white;">购买</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="rcr">
-                    <div class="rcr-top">
-                        <img src="${ctx }/static/images/rc-5.jpg" width="100%">
-                    </div>
-                    <div class="rcr-bot">
-                        <div class="rb-top">
-                            美国进口无籽红提 1kg
-                        </div>
-                        <div class="second_P">
-                            <span class="fk-prop">￥</span>
-                                <span class="fk-prop-price">39
-                                    <span class="fk-prop-p">.00</span>
-                                </span>
-                            <span class="second_Marketprice">￥0.00</span>
-                        </div>
-                        <div class="buy">
-                            <a class="second_mallBuy">
-                                <span style="color: white;">购买</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="rcr">
-                    <div class="rcr-top">
-                        <img src="${ctx }/static/images/rc-6.jpg" width="100%">
-                    </div>
-                    <div class="rcr-bot">
-                        <div class="rb-top">
-                            国产绿奇异果 16颗
-                        </div>
-                        <div class="second_P">
-                            <span class="fk-prop">￥</span>
-                                <span class="fk-prop-price">49
-                                    <span class="fk-prop-p">.00</span>
-                                </span>
-                            <span class="second_Marketprice">￥0.00</span>
-                        </div>
-                        <div class="buy">
-                            <a class="second_mallBuy">
-                                <span style="color: white;">购买</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="rcr">
-                    <div class="rcr-top">
-                        <img src="${ctx }/static/images/rc-2.jpg" width="100%">
-                    </div>
-                    <div class="rcr-bot">
-                        <div class="rb-top">
-                            浙江涌泉蜜桔无核桔子5斤
-                        </div>
-                        <div class="second_P">
-                            <span class="fk-prop">￥</span>
-                                <span class="fk-prop-price">39
-                                    <span class="fk-prop-p">.00</span>
-                                </span>
-                            <span class="second_Marketprice">￥0.00</span>
-                        </div>
-                        <div class="buy">
-                            <a class="second_mallBuy">
-                                <span style="color: white;">购买</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            </c:forEach>
             </div>
-
-
         </div>
     </div>
 

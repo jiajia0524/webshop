@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blue.fruits.entity">
+  <class name="FruitsType" table="FRUITSTYPE">
+    <id name="fruitstype_id" type="int">
+      <column name="FRUITSTYPE_ID" />
+      <generator class="increment"></generator>
+    </id>
+    <property name="fruitstype_name" />
+    
+    <!-- 图书类别对图书的双向一对多联系，one方：fruitstype;many方：fruits -->
+    <set name="fruitsSet" cascade="save-update">
+      <key column="TYPE_ID" />
+      <one-to-many class="Fruits" />
+    </set>
+    
+  </class>
+</hibernate-mapping>

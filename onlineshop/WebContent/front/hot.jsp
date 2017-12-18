@@ -18,11 +18,11 @@
         <img src="${ctx }/static/images/logo.jpg" style="margin-top: 7px;float: left;position: absolute">
         <div class="headr-nav">
             <ul>
-                <li><a href="index.jsp">首页</a> </li>
+                <li><a href="${ctx }/fruits/fruits_list3">首页</a> </li>
                 <li><a href="${ctx }/fruits/fruits_list1""style="color: #4AB344"><span style="color: #4AB344">蔬果热卖</span></a> </li>
                 <li><a href="${ctx }/fruits/fruits_list2">全部产品</a> </li>
-                <li><a href="consult.jsp">最新资讯</a></li>
-                <li><a href="touch.jsp">联系我们</a> </li>
+               <li><a href="#">${lu.userName }</a></li>
+                <li><a href="${ctx }/front/login.jsp">退出登录</a> </li>
             </ul>
             <div class="sptopfoot">
                 <div class="spbottom"  >
@@ -30,12 +30,9 @@
             </div>
         </div>
         <div class="headr-right">
-            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i>
-            我的购物车 ∨
-            <div class="hr-car">
-                <i class="iconfont"style="font-size: 40px;margin-right: 10px">&#xe633;</i>
-                您的购物车内暂时没有任何产品。
-            </div>
+            
+            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i><a href="${ctx }/cart/cartlist">
+            我的购物车 ∨</a>
         </div>
     </div>
 </div>
@@ -93,7 +90,7 @@
             <div class="rec-right">
                 <div class="bd">
                     <div class="bd1"  style="display: block">
-                        <c:forEach items="${list }" var="f" begin="1" end="12">
+                        <c:forEach items="${list }" var="f" begin="${(pages-1)*8 }" end="${pages*8-1 }">
                             <div class="rcr">
                             <div class="rcr-top">
                                 <img src="${ctx }/static/images/${f.fruits_image}" width="100%">
@@ -110,7 +107,7 @@
                                     <span class="second_Marketprice">￥${f.fruits_originalprice }0</span>
                                 </div>
                                 <div class="buy">
-                                    <a class="second_mallBuy">
+                                    <a class="second_mallBuy"  href="fruitsDetail1.do?id=${f.fruits_id}">
                                         <span style="color: white;">购买</span>
                                     </a>
                                 </div>
@@ -118,40 +115,11 @@
                         </div>   
                         </c:forEach>
                     </div>
-                    <div class="bd1">
-                        <c:forEach items="${list }" var="f" begin="1" end="2">
-                            <div class="rcr">
-                            <div class="rcr-top">
-                                <img src="${ctx }/static/images/${f.fruits_image}" width="100%">
-                            </div>
-                            <div class="rcr-bot">
-                                <div class="rb-top">
-                                    ${f.fruits_name }${f.fruits_count }
-                                </div>
-                                <div class="second_P">
-                                    <span class="fk-prop">￥</span>
-                                        <span class="fk-prop-price">${f.fruits_presentprice }0
-                                            <span class="fk-prop-p"></span>
-                                        </span>
-                                    <span class="second_Marketprice">￥${f.fruits_originalprice }0</span>
-                                </div>
-                                <div class="buy">
-                                    <a class="second_mallBuy">
-                                        <span style="color: white;">购买</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>   
-                        </c:forEach> 
-                    </div>
                 <div class="hd">
-                    <div class="net">上一页</div>
-                    <ul>
-                        <li><a href="#" class="active">1</a></li>
-                        <li><a href="#">2</a></li>
-                    </ul>
-                    <div class="next"> 下一页</div>
-
+                    第${pages }页共${totalpages }页&nbsp;&nbsp;<a href="${ctx }/fruits/fruits_list1.do?pages=1">首页</a>&nbsp;&nbsp;
+                    <a href="${ctx }/fruits/fruits_list1.do?pages=${(pages<1)?pages:(pages-1)}">上一页</a>&nbsp;&nbsp;
+                    <a href="${ctx }/fruits/fruits_list1.do?pages=${(pages>=totalpages)?totalpages:(pages+1)}">下一页</a>&nbsp;&nbsp;
+                    <a href="${ctx }/fruits/fruits_list1.do?pages=${totalpages}">尾页</a>
                 </div>
             </div>
 
@@ -212,3 +180,30 @@
 </body>
 <script src="${ctx }/static/js/hot.js"></script>
 </html>
+
+         <!-- <div class="bd1">
+                        <c:forEach items="${list }" var="f" begin="1" end="2">
+                            <div class="rcr">
+                            <div class="rcr-top">
+                                <img src="${ctx }/static/images/${f.fruits_image}" width="100%">
+                            </div>
+                            <div class="rcr-bot">
+                                <div class="rb-top">
+                                    ${f.fruits_name }${f.fruits_count }
+                                </div>
+                                <div class="second_P">
+                                    <span class="fk-prop">￥</span>
+                                        <span class="fk-prop-price">${f.fruits_presentprice }0
+                                            <span class="fk-prop-p"></span>
+                                        </span>
+                                    <span class="second_Marketprice">￥${f.fruits_originalprice }0</span>
+                                </div>
+                                <div class="buy">
+                                    <a class="second_mallBuy">
+                                        <span style="color: white;">购买</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>   
+                        </c:forEach> 
+                    </div> -->

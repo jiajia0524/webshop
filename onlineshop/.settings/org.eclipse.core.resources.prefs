@@ -1,5 +1,8 @@
 eclipse.preferences.version=1
+encoding//WebContent/static/css/carts.css=UTF-8
+encoding//WebContent/static/css/hot.css=UTF-8
 encoding//WebContent/static/css/orange.css=UTF-8
+encoding//WebContent/static/css/reset.css=UTF-8
 encoding//src/com/blue/fruits/user/controller/UserController.java=UTF-8
 encoding//src/com/blue/fruits/util/EncryptUtil.java=UTF-8
 encoding//src/com/blue/fruits/util/Page.java=UTF-8

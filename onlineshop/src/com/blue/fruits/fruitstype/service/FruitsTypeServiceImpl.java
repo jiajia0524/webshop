@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.blue.fruits.entity.Fruitstype;
+import com.blue.fruits.entity.FruitsType;
 import com.blue.fruits.fruitstype.dao.FruitsTypeDaoImpl;
 
 
@@ -18,22 +18,22 @@ public class FruitsTypeServiceImpl {
 	@Resource
     private FruitsTypeDaoImpl fruitsTypeDaoImpl;
 	
-	public List<Fruitstype> selectAll() {
-		List<Fruitstype> list = fruitsTypeDaoImpl.selectAll();
+	public List<FruitsType> selectAll() {
+		List<FruitsType> list = fruitsTypeDaoImpl.selectAll();
 		return list;
 	}
 	
-	public Fruitstype selectById(int id) {
-		Fruitstype type = fruitsTypeDaoImpl.selectById(id);
+	public FruitsType selectById(int id) {
+		FruitsType type = fruitsTypeDaoImpl.selectById(id);
 		return type;
 	}
 	
-	public Boolean addType(Fruitstype ftype) {
+	public Boolean addType(FruitsType ftype) {
 		Boolean f =fruitsTypeDaoImpl.addType(ftype);
 		return f;
 	}
 	
-	public int updateType(Fruitstype ftype) {
+	public int updateType(FruitsType ftype) {
 		int i = fruitsTypeDaoImpl.updateType(ftype);
 		return i;
 	}

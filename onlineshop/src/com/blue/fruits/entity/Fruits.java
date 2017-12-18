@@ -13,11 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
-
-@Entity
-@Table(name="fruits")
+//@Entity
+//@Table(name="fruits")
 public class Fruits {
 	private Integer fruits_id;
 	private String fruits_name;
@@ -26,13 +23,21 @@ public class Fruits {
 	private double fruits_presentprice;
 	private double fruits_originalprice;
 	private Integer type_id;
-	private Fruitstype fruitstype_id;
+	private String typename;
+	private FruitsType fruitstype_id;
 	private String fruits_producingplace;
 	private String fruits_image;
-
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
+	private Set<Cart> cartSet = new HashSet<Cart>();
+	private Set<Orders> ordersSet = new HashSet<Orders>();
+    
+    
+	public Set<Orders> getOrdersSet() {
+		return ordersSet;
+	}
+	public void setOrdersSet(Set<Orders> ordersSet) {
+		this.ordersSet = ordersSet;
+	}
 	public String getFruits_name() {
 		return fruits_name;
 	}
@@ -63,12 +68,12 @@ public class Fruits {
 	public void setFruits_originalprice(double fruits_originalprice) {
 		this.fruits_originalprice = fruits_originalprice;
 	}
-	@ManyToOne
-	@JoinColumn(name="fruitstype_id")
-	public Fruitstype getFruitstype_id() {
+//	@ManyToOne
+//	@JoinColumn(name="fruitstype_id")
+	public FruitsType getFruitstype_id() {
 		return fruitstype_id;
 	}
-	public void setFruitstype_id(Fruitstype fruitstype_id) {
+	public void setFruitstype_id(FruitsType fruitstype_id) {
 		this.fruitstype_id = fruitstype_id;
 	}
 	public String getFruits_image() {
@@ -83,6 +88,8 @@ public class Fruits {
 	public void setFruits_producingplace(String fruits_producingplace) {
 		this.fruits_producingplace = fruits_producingplace;
 	}
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getFruits_id() {
 		return fruits_id;
 	}
@@ -94,6 +101,18 @@ public class Fruits {
 	}
 	public void setType_id(Integer type_id) {
 		this.type_id = type_id;
+	}
+	public String getTypename() {
+		return typename;
+	}
+	public void setTypename(String typename) {
+		this.typename = typename;
+	}
+	public Set<Cart> getCartSet() {
+		return cartSet;
+	}
+	public void setCartSet(Set<Cart> cartSet) {
+		this.cartSet = cartSet;
 	}
 
 }

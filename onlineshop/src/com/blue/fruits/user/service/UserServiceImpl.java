@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.blue.fruits.entity.User;
 import com.blue.fruits.user.dao.UserDaoImpl;
@@ -32,6 +33,11 @@ public class UserServiceImpl {
 		}
 	}
 	
+	public List<User> selectAll() {
+		List<User> list = userDaoImpl.selectAll();
+		return list;
+	}
+	
 	public List<String> selectAllName() {
 		return userDaoImpl.selectAllName();
 		
@@ -41,5 +47,24 @@ public class UserServiceImpl {
 		return userDaoImpl.add(user);
 		
 	}
+	
+	public User selectById(int id) {
+		User user = userDaoImpl.selectById(id);
+		return user;
+	}
+	
+	public int updateUser(User user) {
+		int i = userDaoImpl.updateUser(user);
+		return i;
+	}
+	
+	public void deleteUser(int userId) {
+		userDaoImpl.deleteUser(userId);
+	}
+	
+	public void userImg(String realPath, MultipartFile file, int id) {
+		userDaoImpl.userImg(realPath, file, id);
+	}
+	
 
 }

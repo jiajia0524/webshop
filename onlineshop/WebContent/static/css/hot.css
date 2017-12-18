@@ -197,10 +197,10 @@
     text-align: center;
     height: 42px;
 }
-.hd ul{
+/**.hd ul{
     float: left;
     margin-left: 10px;
-}
+}*/
 .hd li{
     float: left;
     line-height: 42px;

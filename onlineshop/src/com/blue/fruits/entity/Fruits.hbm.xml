@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blue.fruits.entity">
+  <class name="Fruits" table="FRUITS">
+    <id name="fruits_id" type="int">
+      <column name="FRUITS_ID" />
+      <generator class="increment"></generator>
+    </id>
+    <property name="fruits_name" />
+    <property name="fruits_count" />
+    <property name="fruits_describe" />
+    <property name="fruits_presentprice" />
+    <property name="fruits_originalprice" />
+    <property name="type_id" />
+    <property name="fruits_producingplace" />
+    <property name="fruits_image" />
+    <property name="typename"/>
+    
+    <!-- 订单对蔬果的多对多关联映射，Orders,Book -->
+    <set name="ordersSet" table="ORDERSDETAIL" inverse="true">
+      <key column="FRUITSID" />
+      <many-to-many class="Orders" column="ORDERSID" />
+    </set>
+        <!-- 购物车对于购物车的单向一对多，one方：Shopping；many方：Address-->
+    <set name="cartSet" cascade="delete">
+      <key column="FRUITSID" />
+      <one-to-many class="Cart" />
+    </set>
+    
+    <!-- 图书类别对图书的双向一对多联系，one方：fruitstype;many方：fruits -->
+    <many-to-one name="fruitstype_id" column="FRUITSTYPE_ID" class="FruitsType" />
+    
+  </class>
+</hibernate-mapping>

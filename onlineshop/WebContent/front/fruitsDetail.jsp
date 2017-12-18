@@ -22,8 +22,8 @@
                 <li><a href="index.html"><span>首页</span></a> </li>
                 <li><a href="hot.html">蔬果热卖</a> </li>
                 <li><a href="produ.html">全部产品</a> </li>
-                <li><a href="consult.html">最新资讯</a></li>
-                <li><a href="touch.html">联系我们</a> </li>
+                <li><a href="consult.html">${lu.userName }</a></li>
+                <li><a href="${ctx }/front/login.jsp">退出登录</a> </li>
             </ul>
             <div class="sptopfoot">
                 <div class="spbottom"  >
@@ -47,7 +47,7 @@
     <div class="cont-top">
         <div class="cont-left">
             <div class="ctl-img">
-                <img src="${ctx }/static/images/org.jpg">
+                <img src="${ctx }/static/images/${f.fruits_image}">
             </div>
             <div class="collect">
                 <div class="coll">
@@ -73,9 +73,10 @@
 
 
         </div>
+
         <div class="cont-right">
             <div class="J_productTitle title g_minor">
-                <span>南非进口黄柠檬 6个装</span>
+                <span>${f.fruits_name } ${f.fruits_count }</span>
                 <span id="productQrCode" class="webSiteQrCode">&nbsp;
                 <div class="code">
                     <img src="${ctx }/static/images/qrCode%20(1).gif">
@@ -86,7 +87,7 @@
            <div class="pic">
                <span class="ppi">价格:</span>
                <span class="f-mallUnit">￥</span>
-               <span class="pcc">29.00</span>
+               <span class="pcc">${f.fruits_presentprice }0</span>
            </div>
             <div class="pict">
                 <div class="f-proSatifySumWrap">
@@ -99,26 +100,34 @@
                     </div>
                 </div>
             </div>
-
-            <div class="fk-pd5MallCartCount">
-                <div class="f-cartbuyCountWrap">
-                    <span class="f-propName g_minor" style="width:75px;min-width:75px;max-width: 75px;">购买数量：</span>
-                    <input type="text"  value="1" class="g_itext cartBuyCount f-cartBuyCount">
-                </div>
-                <div class="f-buyCountBtn">
-                    <div  class="f-countBtn mallJian"></div>
-                    <div  class="f-countBtn disableMallJian"></div>
-                </div>
-            </div>
-            <div class="fk-pd5MallActBtns">
-                <div class="buttn">
-                    加入购物车
-                </div>
-                <div class="buttn butto">
-                    立即购买
-                </div>
-
-            </div>
+                   
+                            <div class="fk-pd5MallCartCount">
+                                <div class="f-cartbuyCountWrap">
+                                    <span class="f-propName g_minor" style="width:75px;min-width:75px;max-width: 75px;">购买数量：</span>
+                                    <input type="text"  value="1" class="g_itext cartBuyCount f-cartBuyCount" name="number">
+                                </div>
+                                <div class="f-buyCountBtn">
+                                    <div  class="f-countBtn mallJian"></div>
+                                    <div  class="f-countBtn disableMallJian"></div>
+                                </div>
+                            </div>
+                        
+                        <div class="fk-pd5MallActBtns">
+                            <div class="buttn">
+                               <input type="hidden" name="id" value="${f.fruits_id}"/>
+                               <div class="cart">
+			                   <a href="/onlineshop/cart/addcart.do?userId=${lu.userId }&&fruits_id=${f.fruits_id}"><input type="submit" value="加入购物车" /></a>
+			                   </div>
+                            </div>
+                            <div class="buttn butto">
+                               <input type="hidden" name="id" value="${f.fruits_id}"/>
+                               <div class="buy">
+			                   <a href=""></a><input type="button" value="立即购买" /></a>
+			                   </div>
+                            </div>
+                        </div>
+                    </tr>
+                
 
         </div>
     </div>

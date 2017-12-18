@@ -311,6 +311,24 @@
     color: #4AB344;
 
 }
+.buttn .cart{
+	margin-top:10px;
+
+}
+.buttn .cart input{
+	border:none;
+	background-color:white;
+
+}
+.buttn .buy{
+	margin-top:10px;
+
+}
+.buttn .buy input{
+	border:none;
+	background-color:#4AB344;
+
+}
 .butto{
     background-color:#4AB344 ;
     color: white;

@@ -83,9 +83,9 @@ $('.lhd li').click(function(){
 
 
 //弹窗
-$('.buttn').click(function(){
-    $('.popup:eq(0)').css('display','block')
-})
-$('.del:eq(0)').click(function(){
-    $('.popup:eq(0)').css('display','none')
-})
+//$('.buttn').click(function(){
+//    $('.popup:eq(0)').css('display','block')
+//})
+//$('.del:eq(0)').click(function(){
+//    $('.popup:eq(0)').css('display','none')
+//})

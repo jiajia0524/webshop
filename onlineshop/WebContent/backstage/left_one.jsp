@@ -9,7 +9,7 @@
 <title>后台左一</title>
 </head>
 <body>
-<a href="${ctx }/fruits/fruits_list">蔬果列表</a><br>
+<a href="${ctx }/fruits/fruitspages">蔬果列表</a><br>
 
 <a href="${ctx }/backstage/addfruits.jsp">添加蔬果</a>
 

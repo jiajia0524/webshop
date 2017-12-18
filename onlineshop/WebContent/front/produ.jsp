@@ -18,24 +18,21 @@
         <img src="${ctx }/static/images/logo.jpg" style="margin-top: 7px;float: left;position: absolute">
         <div class="headr-nav">
             <ul>
-                <li><a href="${ctx }/front/index.jsp">首页</a> </li>
-                <li><a href="${ctx }/fruits/fruits_list1"">蔬果热卖</a> </li>
-                <li><a href="${ctx }/fruits/fruits_list2""style="color: #4AB344"><span style="color: #4AB344">全部产品</span></a> </li>
-                <li><a href="${ctx }/front/consult.jsp">最新资讯</a></li>
-                <li><a href="${ctx }/front/touch.jsp">联系我们</a> </li>
+                <li><a href="${ctx }/fruits/fruits_list3">首页</a> </li>
+                <li><a href="${ctx }/fruits/fruits_list1">蔬果热卖</a> </li>
+                <li><a href="${ctx }/fruits/fruits_list2" style="color: #4AB344"><span style="color: #4AB344">全部产品</span></a> </li>
+               <li><a href="#">${lu.userName }</a></li>
+                <li><a href="${ctx }/front/login.jsp">退出登录</a> </li>
             </ul>
             <div class="sptopfoot">
                 <div class="spbottom"  >
                 </div>
             </div>
         </div>
-        <div class="headr-right">
-            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i>
-            我的购物车 ∨
-            <div class="hr-car">
-                <i class="iconfont"style="font-size: 40px;margin-right: 10px">&#xe633;</i>
-                您的购物车内暂时没有任何产品。
-            </div>
+         <div class="headr-right">
+            
+            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i><a href="${ctx }/cart/cartlist">
+            我的购物车 ∨</a>
         </div>
     </div>
 </div>
@@ -116,7 +113,7 @@
                                     <span class="second_Marketprice">￥${f.fruits_originalprice }0</span>
                                 </div>
                                 <div class="buy">
-                                    <a class="second_mallBuy">
+                                    <a class="second_mallBuy"  href="fruitsDetail1.do?id=${f.fruits_id}">
                                         <span style="color: white;">购买</span>
                                     </a>
                                 </div>
@@ -172,7 +169,7 @@
                                     <span class="second_Marketprice">￥${f.fruits_originalprice }0</span>
                                 </div>
                                 <div class="buy">
-                                    <a class="second_mallBuy">
+                                    <a class="second_mallBuy"  href="fruitsDetail1.do?id=${f.fruits_id}">
                                         <span style="color: white;">购买</span>
                                     </a>
                                 </div>

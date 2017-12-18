@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.blue.fruits.entity.Fruitstype;
+import com.blue.fruits.entity.FruitsType;
 import com.blue.fruits.fruitstype.service.FruitsTypeServiceImpl;
 
 @Controller
@@ -20,20 +20,20 @@ public class FruitsTypeController {
 	
 	@RequestMapping("/typelist")
 	public String selectAll(Model model) {
-		List<Fruitstype> list = fruitsTypeServiceImpl.selectAll();
+		List<FruitsType> list = fruitsTypeServiceImpl.selectAll();
 		model.addAttribute("typelist",list);
 		return "type/type_list";
 	}
 	
 	@RequestMapping("/typedetail")
 	public String selectById(Model model, int id) {
-		Fruitstype ftype = fruitsTypeServiceImpl.selectById(id);
+		FruitsType ftype = fruitsTypeServiceImpl.selectById(id);
 		model.addAttribute("type",ftype);
 		return "type/type_detail";
 	}
 	
 	@RequestMapping("/addtype")
-	public String addType(Fruitstype ftype) {
+	public String addType(FruitsType ftype) {
 		Boolean b = fruitsTypeServiceImpl.addType(ftype);
 		if(b != false) {
 			return "succeed";
@@ -43,7 +43,7 @@ public class FruitsTypeController {
 	}
 	
 	@RequestMapping("/updatetype")
-	public String updateType(Fruitstype ftype) {
+	public String updateType(FruitsType ftype) {
 		int i = fruitsTypeServiceImpl.updateType(ftype);
 		if(i > 0) {
 			return "succeed";

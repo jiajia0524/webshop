@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.blue.fruits.entity.User;
 import com.blue.fruits.user.service.UserServiceImpl;
 
+
 @Controller
 public class UserController {
 	
@@ -22,8 +23,8 @@ public class UserController {
 	private UserServiceImpl userServiceImpl;
 
 	@RequestMapping("/login")
-	public String login(@RequestParam("user_name") String name,
-			@RequestParam("user_password") String pwd,
+	public String login(@RequestParam("userName") String name,
+			@RequestParam("userPassword") String pwd,
 			HttpSession session,Model model){
 		User lu=this.userServiceImpl.login(name, pwd);
 		if(lu!=null){
@@ -33,6 +34,12 @@ public class UserController {
 			model.addAttribute("erroinfo", "用户名或密码错误");
 			return "error";
 		}
+	}
+	@RequestMapping("/userlist")
+	public String selectAll(Model model) {
+		List<User> list = userServiceImpl.selectAll();
+		model.addAttribute("userlist", list);
+		return "backstage/userlist";
 	}
 	
 	@RequestMapping("/username")
@@ -55,5 +62,51 @@ public class UserController {
 			model.addAttribute("registerError", "注册失败");
 			return "front/register";
 		}
+	}
+	
+	@RequestMapping("/preupdateuser")
+	public String selectById(Model model,int userId) {
+		User user = userServiceImpl.selectById(userId);
+		model.addAttribute("user", user);
+		//model.addAttribute("sexs", new String[] {"男","女"} );
+		//model.addAttribute("likes", new String[] {"游泳","跑步","看书","写作","唱歌","跳舞"});
+		return "backstage/user_update";
+	}
+	
+	@RequestMapping("/updateuser")
+	public String updateUser(User user) {
+		int i = userServiceImpl.updateUser(user);
+		if(i >  0) {
+			return "succeed";
+		}
+		return "error";
+	}
+	
+	@RequestMapping("/deleteuser")
+	public String deleteUser(int userId) {
+		userServiceImpl.deleteUser(userId);
+		return "succeed";
+	}
+	
+	@RequestMapping("/userimage")
+	public String userImg(HttpServletRequest request,Model model,@RequestParam MultipartFile file, int id) {
+		String realPath = request.getServletContext().getRealPath("images_person");
+		userServiceImpl.userImg(realPath, file, id);;
+		return "succeed";
+	}
+	
+	@RequestMapping("/userShopping")
+	public String showShopping(int id) {
+		User user = userServiceImpl.selectById(id);
+		
+		return "user/user_shopping";
+	}
+	
+	public UserServiceImpl getUserService() {
+		return userServiceImpl;
+	}
+	
+	public void setUserService(UserServiceImpl userService) {
+		this.userServiceImpl = userService;
 	}
 }
