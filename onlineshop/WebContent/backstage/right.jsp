@@ -70,8 +70,8 @@
                     <td>${f.fruits_producingplace }</td>
                     <td>${f.fruits_describe }</td>
                     <td>${f.type_id }</td>
-                    <td><a href="fruitsdetail.do?fruits_id=${f.fruits_id}" class="tablelink">查看</a>     <a href="preupdatefruits.do?fruits_id=${f.fruits_id}" class="tablelink"> 修改</a>
-                    <a href="deletefruits.do?fruits_id=${f.fruits_id}" class="tablelink">删除</a></td>
+                    <td><a href="${ctx}/fruits/fruitsdetail.do?fruits_id=${f.fruits_id}" class="tablelink">查看</a>     <a href="${ctx}/fruits/preupdatefruits.do?fruits_id=${f.fruits_id}" class="tablelink"> 修改</a>
+                    <a href="${ctx}/fruits/deletefruits.do?fruits_id=${f.fruits_id}" class="tablelink">删除</a></td>
                 </tr> 
                 </c:forEach>
         

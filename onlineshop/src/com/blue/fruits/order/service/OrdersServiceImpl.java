@@ -56,33 +56,3 @@ public class OrdersServiceImpl {
 	};
 
 }
-
-//public int totalUsers() {
-//	int totalpages=ordersDaoImpl.totalUsers();
-//	return totalpages; 
-//}
-//public List<Orders> findOrder(int pages) {
-//	List<Orders> list=ordersDaoImpl.findOrder(pages);
-//	return list;
-//}
-//public boolean updateorders(Integer id) {
-//	boolean up=ordersDaoImpl.updateorders(id);
-//	return up;
-//}
-//
-//public int totalOrders() {
-//	int totalpages=ordersDaoImpl.totalOrders();
-//	return totalpages;
-//}
-//public List<Orders> findByUsername(String username) {
-//	List<Orders> list=ordersDaoImpl.findByUsername(username);
-//	return list;
-//}
-//public boolean deleteorders(Integer orderId) {
-//	boolean del=ordersDaoImpl.deleteorders(orderId);
-//	return del;
-//}
-//public Fruits findByFruitsid(Integer id) {
-//	Fruits book=ordersDaoImpl.adminfindbyfruitsid(id);
-//	return book;
-//}

@@ -18,11 +18,10 @@
     <div class="heard-con">
         <img src="${ctx }/static/images/logo.jpg" style="margin-top: 7px;float: left;position: absolute">
         <div class="headr-nav">
-            <ul>
-                <li><a href="index.html"><span>首页</span></a> </li>
-                <li><a href="hot.html">蔬果热卖</a> </li>
-                <li><a href="produ.html">全部产品</a> </li>
-                <li><a href="consult.html">${lu.userName }</a></li>
+             <li><a href="${ctx }/fruits/fruits_list3">首页</a> </li>
+                <li><a href="${ctx }/fruits/fruits_list1">蔬果热卖</a> </li>
+                <li><a href="${ctx }/fruits/fruits_list2">全部产品</a> </li>
+               <li><a href="#">${lu.userName }</a></li>
                 <li><a href="${ctx }/front/login.jsp">退出登录</a> </li>
             </ul>
             <div class="sptopfoot">
@@ -31,8 +30,9 @@
             </div>
         </div>
         <div class="headr-right">
-            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i>
-            我的购物车 ∨
+            
+            <i class="iconfont" style="font-size: 16px;margin-right: 10px">&#xe7d5;</i><a href="${ctx }/cart/cartlist">
+            我的购物车 ∨</a>
         </div>
     </div>
 </div>

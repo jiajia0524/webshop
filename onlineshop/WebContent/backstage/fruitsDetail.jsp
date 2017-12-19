@@ -9,8 +9,7 @@
 <body>
 <div class="body">
 	<div class="left">
-	  <img src="${ctx }/static/images/${f.fruits_image}" alt="封面" 
-	  width="250px" height="350px"/>
+	  <img src="${ctx }/static/images/${f.fruits_image}" alt="封面" />
 	</div>
 	<div class="right">
 	  <table border="1px">
@@ -24,7 +23,7 @@
 	    </tr>
 	    <tr height="50px">
 	      <td width="100px">类别</td>
-	      <td width="200px">${f.type_id.fruitstype_name}</td>
+	      <td width="200px">${f.fruitstype_id.fruitstype_name}</td>
 	    </tr>
 	    <tr height="50px">
 	      <td width="100px">价格</td>

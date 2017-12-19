@@ -98,13 +98,6 @@
              <button type="submit">立即购买</button>  
         </div>
         <!--底部-->
-        <!-- <div class="bar-wrapper">
-            <div class="bar-right">
-                <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
-                <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
-                <div class="calBtn"><a href="javascript:;">结算</a></div>
-            </div>
-        </div> -->
     </form>
 </section>
 <section class="model_bg"></section>

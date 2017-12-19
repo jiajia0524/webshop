@@ -56,29 +56,3 @@ public class CartServiceImpl {
 
 }
 
-//public boolean addFruits(int userId, int fruits_id, int num, int fruits_presentprice, Date now) {
-//	boolean flag=cartDaoImpl.addFruits(userId,fruits_id,num,fruits_presentprice,now); 
-//	return flag; 
-//}
-//
-//public List<Orders> findCart(int userId) {
-//	List<Orders> list=cartDaoImpl.findCart(userId);
-//	return list;
-//}
-//
-//public Fruits findfruitsById(int id) {
-//	Fruits fruits=cartDaoImpl.findfruitsById(id);
-//	return fruits;
-//}
-//public User findUser(String userName) {
-//	User user=cartDaoImpl.findUser(userName);
-//	return user;
-//}
-//public boolean deleteFruits(int userId,int id) {
-//	boolean flag=cartDaoImpl.deleteFruits(userId,id);
-//	return flag;
-//}
-//public boolean downFruits(int userId, int id) {
-//	boolean flag=cartDaoImpl.downFruits(userId,id);
-//	return flag;
-//}

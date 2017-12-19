@@ -124,7 +124,7 @@ public class FruitsController {
 		return "front/fruitsDetail";
 	}
 	//后台蔬果详情
-	@RequestMapping("/fruitsdetail1")
+	@RequestMapping("/fruitsdetail")
 	public String selectById2(Model model,int fruits_id) {
 		Fruits f = fruitsServiceImpl.selectById(fruits_id);
 		model.addAttribute("f",f);
@@ -143,10 +143,10 @@ public class FruitsController {
 	}
 	
 	@RequestMapping("/preupdatefruits")
-	public String preUpdate(Model model,int id) {
-		Fruits f = fruitsServiceImpl.selectById(id);
+	public String preUpdate(Model model,int fruits_id) {
+		Fruits f = fruitsServiceImpl.selectById(fruits_id);
 		model.addAttribute("f",f);
-		return "fruits_update";
+		return "backstage/fruits_update";
 	}
 	
 	@RequestMapping("/updatefruits") 

@@ -71,7 +71,7 @@ $(function(){
     </dd>  
     
     
-    <dd><div class="title"><span><img src="static/images/leftico04.png" /></span>其他管理</div>
+    <dd><div class="title"><span><img src="static/images/leftico04.png" /></span>用户管理</div>
     <ul class="menuson">
         <li><cite></cite><a href="${ctx }/userlist" target="rightFrame">用户信息管理</a><i></i></li>
         <li><cite></cite><a href="${ctx }/backstage/user_update.jsp" target="rightFrame">用户修改页面</a><i></i></li>

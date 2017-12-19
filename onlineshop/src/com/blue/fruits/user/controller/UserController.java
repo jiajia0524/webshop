@@ -68,8 +68,6 @@ public class UserController {
 	public String selectById(Model model,int userId) {
 		User user = userServiceImpl.selectById(userId);
 		model.addAttribute("user", user);
-		//model.addAttribute("sexs", new String[] {"男","女"} );
-		//model.addAttribute("likes", new String[] {"游泳","跑步","看书","写作","唱歌","跳舞"});
 		return "backstage/user_update";
 	}
 	
@@ -90,7 +88,7 @@ public class UserController {
 	
 	@RequestMapping("/userimage")
 	public String userImg(HttpServletRequest request,Model model,@RequestParam MultipartFile file, int id) {
-		String realPath = request.getServletContext().getRealPath("images_person");
+		String realPath = request.getServletContext().getRealPath("images");
 		userServiceImpl.userImg(realPath, file, id);;
 		return "succeed";
 	}

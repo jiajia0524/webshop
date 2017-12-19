@@ -107,7 +107,7 @@
                                     <span class="second_Marketprice">￥${f.fruits_originalprice }0</span>
                                 </div>
                                 <div class="buy">
-                                    <a class="second_mallBuy"  href="fruitsDetail1.do?id=${f.fruits_id}">
+                                    <a class="second_mallBuy"  href="fruitsDetail1.do?fruits_id=${f.fruits_id}">
                                         <span style="color: white;">购买</span>
                                     </a>
                                 </div>
